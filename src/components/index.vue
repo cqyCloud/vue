@@ -2,14 +2,14 @@
     <div class="high">
         <!--banner-->
         <mt-swipe :auto="4000" :class="[banner]">
-            <mt-swipe-item v-for="item in 3">
+            <mt-swipe-item v-for="item in bannerImg">
                 <a>
-                    {{item}}
+                    <img :src="item.picUrl" :title="item.title" width="100%" height="100%" alt="">
                 </a>
             </mt-swipe-item>
         </mt-swipe>
         <!--banner-->
-
+        <!-- mt-swipe-item -->
         <!--九宫格-->
         <!--九宫格-->
         <div class="grids clearFix">
@@ -104,14 +104,13 @@
             }*/
         },
         created() {
-            // 请求轮播图数据
-            /*Vue.prototype.dataURL = function (file,title,id) {
-                id = (id === undefined)?'':id;
-                return file+'?title='+title;
-            }*/
-            {
-              console.log(this.dataURL('vue.php','banner'))
-            }
+          // 请求轮播图数据
+          console.log(this.dataURL('vue.php','banner')),
+          this.$ajax.get(this.dataURL('vue.php','banner'))
+            .then(res => {
+              console.log(res.data)
+              // this.bannerImg = res.data
+            })
         }
     }
 </script>
