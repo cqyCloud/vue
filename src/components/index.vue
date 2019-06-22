@@ -13,7 +13,7 @@
         <!--九宫格-->
         <!--九宫格-->
         <div class="grids clearFix">
-            <a>
+            <router-link :to="{name:'news.list'}">
                 <div class="center">
                     <svg class="icon">
                         <use xlink:href="#icon-news_icon"></use>
@@ -22,8 +22,8 @@
                         新闻资讯
                     </p>
                 </div>
-            </a>
-            <a>
+            </router-link>
+            <router-link :to="{name:'photo.list'}">
                 <div class="center">
                     <svg class="icon">
                         <use xlink:href="#icon-plus-share"></use>
@@ -32,7 +32,8 @@
                         图文分享
                     </p>
                 </div>
-            </a>
+            </router-link>
+            <!--:to="{name:'shop.list'}"-->
             <a>
                 <div class="center">
                     <svg class="icon">
@@ -43,7 +44,7 @@
                     </p>
                 </div>
             </a>
-            <a href="http://47.96.29.109:8100">
+            <a href="http://47.96.29.109:8200">
                 <div class="center">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-liuyanjianyi"></use>
@@ -108,8 +109,8 @@
           console.log(this.dataURL('vue.php','banner')),
           this.$ajax.get(this.dataURL('vue.php','banner'))
             .then(res => {
-              console.log(res.data)
-              // this.bannerImg = res.data
+              // console.log(res.data)
+              this.bannerImg = res.data
             })
         }
     }

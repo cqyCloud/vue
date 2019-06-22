@@ -2,7 +2,34 @@
   <div id="app">
     <header></header>
     <header class="hd fixed" v-text="title">开发地点</header>
+    <!--banner-->
     <router-view/>
+    <!--banner-->
+    <!--footNav-->
+    <footer class="ft">
+      <router-link class="link"  :to="{name:'index'}">
+        <div class="svg iconfont icon-shouye"></div>
+        <p>首页</p>
+      </router-link>
+
+      <router-link class="link"  :to="{name:'map'}">
+        <div class="svg iconfont icon-ditu"></div>
+        <p>潭州</p>
+      </router-link>
+      <router-link class="link"  :to="{name:'weather'}">
+        <div class="svg iconfont icon-tianqichaxun"></div>
+        <p>天气</p>
+      </router-link>
+      <a class="link"  :to="{name:'shopcart'}">
+        <div class="svg iconfont icon-gouwuche count"><i class="showNum" v-if="this.pickNum">8</i></div>
+        <p>购物</p>
+      </a>
+      <router-link class="link" :to="{name:'my'}">
+        <div class="svg iconfont icon-weibiaoti2fuzhi12"></div>
+        <p>我的课程</p>
+      </router-link>
+    </footer>
+    <!--footNav-->
   </div>
 </template>
 
@@ -46,7 +73,7 @@
 s
 <style scoped lang="less">
   @rem:750/10rem;
-  
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -74,8 +101,8 @@ s
       z-index: 999;
     }
   }
-  
-  
+
+
   .ft{
     position: fixed;
     right: 0;
@@ -88,11 +115,11 @@ s
     background-size: 100% 1px;
     background-repeat: no-repeat;
     background-position: top left;
-    
+
     background-color: #fafafa;
     display: flex;
     text-align: center;
-    
+
     a{
       color: #18b4ed;
       text-decoration: none;
@@ -103,13 +130,13 @@ s
       /*padding: 7px 0;*/
       flex: 1;
       text-decoration: none;
-      
+
     }
     .link .svg{
       margin: 15/@rem auto 5px;
       font-size: 44/@rem;
     }
-    
+
     .link p{
       color: inherit;
       font-size: 24/@rem;
@@ -137,13 +164,13 @@ s
       border-radius: 50%;
       font-style: normal;
     }
-    
+
     .fade-enter-active, .fade-leave-active {
       transition: opacity 0.2s;
     }
     .fade-enter, .fade-leave-to , .fade-leave-active below version  {
       opacity: 0;
     }
-    
+
   }
 </style>

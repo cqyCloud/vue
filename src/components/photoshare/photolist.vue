@@ -64,54 +64,54 @@
         created(){
 
             // 图文导航请求
-            {
-                let file = 'vue.php';
-                let title = 'shareNav';
-                let url = file+'?title='+title;
-                this.$ajax.get(url)
-                    .then(res=>{
-                        //console.log(res);
-                        this.photoNav = res.data;
-                    })
-                    .catch(err=>{
-                        console.log(err);
-                    });
-            }
-            this.getImgs('womanStar');
+            // {
+            //     let file = 'vue.php';
+            //     let title = 'shareNav';
+            //     let url = file+'?title='+title;
+            //     this.$ajax.get(url)
+            //         .then(res=>{
+            //             //console.log(res);
+            //             this.photoNav = res.data;
+            //         })
+            //         .catch(err=>{
+            //             console.log(err);
+            //         });
+            // }
+            // this.getImgs('womanStar');
         },
         methods:{
             getImgs(title){
 
-                let file = 'vue.php';
-                let url = file+'?title='+title;
-                let attr = title;
-                this.$ajax.get(url).then(res=>{
-                    //console.log(res);
-                    this[attr] = res.data;
-                    this.tabActive();
-                }).catch(err=>{
-                    console.log(err)
-                })
+                // let file = 'vue.php';
+                // let url = file+'?title='+title;
+                // let attr = title;
+                // this.$ajax.get(url).then(res=>{
+                //     //console.log(res);
+                //     this[attr] = res.data;
+                //     this.tabActive();
+                // }).catch(err=>{
+                //     console.log(err)
+                // })
 
 
             },
             tabActive(){
                 {
-                    let tabItem = document.getElementsByClassName('tabItem')[0];
-                    let tabCon = document.getElementsByClassName('tabCon')[0];
-                    let conList = tabCon.getElementsByClassName('conList');
-                    let tabA = tabItem.getElementsByTagName('a');
-                    for(var i=0;i<tabA.length;i++){
-                        tabA[i].index = i;
-                        tabA[i].onclick =  function () {
-                            for(var i=0;i<tabA.length;i++){
-                                tabA[i].className = '';
-                                conList[i].style.display = 'none';
-                            }
-                            tabA[this.index].className = 'active';
-                            conList[this.index].style.display = 'block';
-                        }
-                    }
+                    // let tabItem = document.getElementsByClassName('tabItem')[0];
+                    // let tabCon = document.getElementsByClassName('tabCon')[0];
+                    // let conList = tabCon.getElementsByClassName('conList');
+                    // let tabA = tabItem.getElementsByTagName('a');
+                    // for(var i=0;i<tabA.length;i++){
+                    //     tabA[i].index = i;
+                    //     tabA[i].onclick =  function () {
+                    //         for(var i=0;i<tabA.length;i++){
+                    //             tabA[i].className = '';
+                    //             conList[i].style.display = 'none';
+                    //         }
+                    //         tabA[this.index].className = 'active';
+                    //         conList[this.index].style.display = 'block';
+                    //     }
+                    // }
                 }
             }
         }

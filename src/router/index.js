@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/index'
+import Index from '../components/index'
 import headNav from '../components/common/headNav'
+import newsList from '../components/news/newslist'
+import photoList from  '../components/photoshare/photolist'
+// import shopList from '../components/shop/shoplist'
 
 //安装全局组件
 Vue.component('headNav',headNav)
@@ -30,6 +33,21 @@ export default new Router({
     {
       path: '/',
       component: Index
-    }
+    },
+    {
+      name:'news.list',
+      path:'/news/list',
+      component:newsList
+    },
+    {
+      name:'photo.list',
+      path:'/photo/list',
+      component:photoList
+    },
+    // {
+    //   name:'shop.list',
+    //   path:'/shop/list',
+    //   component:shopList
+    // }
   ]
 })

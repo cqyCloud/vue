@@ -30,39 +30,39 @@
             }
         },
         mounted(){
-//aui-pull-refresh.js 下拉刷新组件
-            {
-                var pullRefresh = new auiPullToRefresh({
-                    container: document.querySelector('.aui-refresh-content'), //下拉容器
-                    triggerDistance: 250 //下拉高度
-                },function(ret){
-                    if(ret.status=="success"){
-                        setTimeout(function () {
-                            pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
-                        },3500);
-
-                    }
-                });
-            }
+            // //aui-pull-refresh.js 下拉刷新组件
+            // {
+            //     var pullRefresh = new auiPullToRefresh({
+            //         container: document.querySelector('.aui-refresh-content'), //下拉容器
+            //         triggerDistance: 250 //下拉高度
+            //     },function(ret){
+            //         if(ret.status=="success"){
+            //             setTimeout(function () {
+            //                 pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
+            //             },3500);
+            //
+            //         }
+            //     });
+            // }
 
 
         },
         created(){
-
-            //  商品列表
-            {
-                let file = 'vue.php';
-                let title = 'likeYou';
-                let url = file + '?title=' + title;
-                this.$ajax.get(url)
-                    .then(res=>{
-                        //console.log(res);
-                        this.shopList = res.data;
-                    })
-                    .catch(err=>{
-                        console.log(err);
-                    });
-            }
+            // this.shopList = 1;
+            // //  商品列表
+            // {
+            //     let file = 'vue.php';
+            //     let title = 'likeYou';
+            //     let url = file + '?title=' + title;
+            //     this.$ajax.get(url)
+            //         .then(res=>{
+            //             //console.log(res);
+            //             this.shopList = res.data;
+            //         })
+            //         .catch(err=>{
+            //             console.log(err);
+            //         });
+            // }
 
 
         }
