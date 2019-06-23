@@ -2,7 +2,7 @@
     <div class="high">
         <!--banner-->
         <mt-swipe :auto="4000" :class="[banner]">
-            <mt-swipe-item v-for="item in bannerImg">
+            <mt-swipe-item v-for="(item,index) in bannerImg" :key="index">
                 <a>
                     <img :src="item.picUrl" :title="item.title" width="100%" height="100%" alt="">
                 </a>
@@ -34,7 +34,7 @@
                 </div>
             </router-link>
             <!--:to="{name:'shop.list'}"-->
-            <a>
+            <router-link :to="{name:'shop.list'}">
                 <div class="center">
                     <svg class="icon">
                         <use xlink:href="#icon-shangpinfenlei"></use>
@@ -43,7 +43,7 @@
                         商品展示
                     </p>
                 </div>
-            </a>
+            </router-link>
             <a href="http://47.96.29.109:8200">
                 <div class="center">
                     <svg class="icon" aria-hidden="true">

@@ -78,5 +78,8 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  externals: {//外部环境
+    'AMap': 'AMap'
+  },
 }

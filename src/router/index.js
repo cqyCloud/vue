@@ -4,12 +4,20 @@ import Index from '../components/index'
 import headNav from '../components/common/headNav'
 import newsList from '../components/news/newslist'
 import photoList from  '../components/photoshare/photolist'
-// import shopList from '../components/shop/shoplist'
+import shopList from '../components/shop/shoplist'
+import map from '../components/map/map'
+import weaTher from '../components/weather/weather'
+import WeaTher from '../components/common/weather'
+import shopCart from '../components/shopcart/shopcart'
+import My from '../components/my/my'
+import bannerDetails from '../components/banner/bannardetails'
 
 //安装全局组件
 Vue.component('headNav',headNav)
+Vue.component('dateWeather',WeaTher)
 
-//数据请求
+
+//数据请求 data-weather
 import Axios from 'axios'
 Axios.defaults.baseURL = "http://localhost:3000/vueProject"
 Vue.prototype.$ajax = Axios
@@ -18,8 +26,10 @@ Vue.prototype.dataURL = function (file,title,id) {
   id = (id === undefined)?'':id;
   return file+'?title='+title+id;
 }
-// import $ from 'jquery'
-// Vue.prototype.$jq = $;
+
+
+import $ from 'jquery'
+Vue.prototype.$jq = $;
 
 // mint-ui 组件库
 import  Mint from 'mint-ui'
@@ -32,7 +42,13 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name:'index',
       component: Index
+    },
+    {
+      name:'banner.details',
+      path:'/banner/details',
+      component:bannerDetails
     },
     {
       name:'news.list',
@@ -44,10 +60,30 @@ export default new Router({
       path:'/photo/list',
       component:photoList
     },
-    // {
-    //   name:'shop.list',
-    //   path:'/shop/list',
-    //   component:shopList
-    // }
+    {
+      name:'shop.list',
+      path:'/shop/list',
+      component:shopList
+    },
+    {
+      name:'map',
+      path:'/map',
+      component:map
+    },
+    {
+      name:'weather',
+      path:'/weather',
+      component:weaTher
+    },
+    {
+      name:'shopcart',
+      path:'/shopcart',
+      component:shopCart
+    },
+    {
+      name:'my',
+      path:'/my',
+      component:My
+    }
   ]
 })

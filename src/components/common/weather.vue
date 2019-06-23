@@ -15,8 +15,8 @@
                         </div>
                         <div class="date_right">
                             <p class="time" id="time">21 : 39 : 47</p>
-                            <p class="date" id="year">2018年05月19日</p>
-                            <p class="week" id="week">星期六</p>
+                            <p class="date" id="year">2019年06月23日</p>
+                            <p class="week" id="week">星期日</p>
                         </div>
                     </div>
                     <div class="date_close" id="date_close" ></div>
@@ -123,23 +123,32 @@
                             .getSeconds());
                     return datetime;
                 }
-                this.location = '长沙';
+                this.location = '北京';
                 this.$jq.ajax({
                     type: 'post',
-                    url: 'http://route.showapi.com/9-2',
+                    url: 'http://route.showapi.com/9-5',
                     dataType: 'json',
                     data: {
                         "showapi_timestamp": formatterDateTime(),
-                        "showapi_appid": 37928,
-                        "showapi_sign": 'd0ca1605e19241c38849c3fb9a56b447',
+                        "showapi_appid": 98466,
+                        "showapi_sign": 'd65d7845a6e84db19e1d1153e726e893',
+                        "areaid": "101250101",
                         "area":this.location,
+                        "from":"5",
+                        "lng":"116.2278",
+                        "lat":"40.242266",
+                        "needMoreDay":"0",
+                        "needIndex":"0",
+                        "needHourData":"0",
+                        "need3HourForcast":"0",
+                        "needAlarm":"0"
                     },
-
+                  // d65d7845a6e84db19e1d1153e726e893
                     error: function(XmlHttpRequest, textStatus, errorThrown) {
                         console.log("操作失败!");
                     },
                     success: (result)=> {
-                        //console.log(result.showapi_res_body)
+                        // console.log(result)
                         this.cityInfo = result.showapi_res_body.cityInfo;
                         this.now = result.showapi_res_body.now;
                         this.f1 = result.showapi_res_body.f1;

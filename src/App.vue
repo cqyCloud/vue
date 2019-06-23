@@ -20,10 +20,10 @@
         <div class="svg iconfont icon-tianqichaxun"></div>
         <p>天气</p>
       </router-link>
-      <a class="link"  :to="{name:'shopcart'}">
+      <router-link class="link"  :to="{name:'shopcart'}">
         <div class="svg iconfont icon-gouwuche count"><i class="showNum" v-if="this.pickNum">8</i></div>
         <p>购物</p>
-      </a>
+      </router-link>
       <router-link class="link" :to="{name:'my'}">
         <div class="svg iconfont icon-weibiaoti2fuzhi12"></div>
         <p>我的课程</p>
