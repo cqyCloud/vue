@@ -20,7 +20,10 @@
         },
         created(){
             // 点击对应的轮播图 显示对应的详情
-
+            let id = this.$route.query.id;
+            let title = this.$route.query.title;
+            console.log(id,title)
+            console.log( this.dataURL('vue.app',title,id))
         }
     }
 </script>

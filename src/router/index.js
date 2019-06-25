@@ -39,9 +39,14 @@ Vue.use(Mint)
 Vue.use(Router)
 
 export default new Router({
+  linkActiveClass:'rlActive',
   routes: [
     {
-      path: '/',
+      path:'/',
+      redirect:{name:'index'}
+    },
+    {
+      path: '/ ',
       name:'index',
       component: Index
     },
@@ -84,6 +89,11 @@ export default new Router({
       name:'my',
       path:'/my',
       component:My
-    }
+    },
+    // {
+    //   name:'banner.details',
+    //   path:'/bannerDetails',
+    //   component:bannerDetails
+    // }
   ]
 })

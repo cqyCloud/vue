@@ -3,9 +3,9 @@
         <!--banner-->
         <mt-swipe :auto="4000" :class="[banner]">
             <mt-swipe-item v-for="(item,index) in bannerImg" :key="index">
-                <a>
+                <router-link :to="{name:'banner.details',query:{id:item.id,title:'banner'}}">
                     <img :src="item.picUrl" :title="item.title" width="100%" height="100%" alt="">
-                </a>
+                </router-link>
             </mt-swipe-item>
         </mt-swipe>
         <!--banner-->
