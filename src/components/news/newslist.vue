@@ -3,7 +3,7 @@
         <head-nav title="新闻列表"></head-nav>
         <ul>
             <li v-for="(item) in newsList" :key="item.id">
-                <router-link>
+                <router-link :to="{name:'news.details',query:{id:item.id,title:'newsList'}}">
                     <div class="pic ">
                         <img :src="item.picUrl" v-lazy="item.picUrl" alt="" width="100%" height="100%">
                     </div>
@@ -29,7 +29,12 @@
         },
         created(){
             //  新闻列表
-
+            console.log(this.dataURL('vue.php','newsList'))
+            this.$ajax.get(this.dataURL('vue.php','newsList'))
+              .then(res => {
+                // console.log(res.data)
+                this.newsList = res.data
+              })
         },
         mounted(){
 

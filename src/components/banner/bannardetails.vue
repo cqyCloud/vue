@@ -22,8 +22,14 @@
             // 点击对应的轮播图 显示对应的详情
             let id = this.$route.query.id;
             let title = this.$route.query.title;
-            console.log(id,title)
-            console.log( this.dataURL('vue.app',title,id))
+            // console.log( this.dataURL('vue.app',title,id))
+            // console.log(id,title)
+            // console.log(this.$route.query)
+            this.$ajax.get(this.dataURL('vue.app',title,id))
+              .then(res => {
+                this.bannerDetails = res.data
+                // console.log(res.data)
+              })
         }
     }
 </script>

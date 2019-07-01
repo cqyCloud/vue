@@ -11,6 +11,7 @@ import WeaTher from '../components/common/weather'
 import shopCart from '../components/shopcart/shopcart'
 import My from '../components/my/my'
 import bannerDetails from '../components/banner/bannardetails'
+import newsDetail from '../components/news/newsdetails'
 
 //安装全局组件
 Vue.component('headNav',headNav)
@@ -61,6 +62,11 @@ export default new Router({
       component:newsList
     },
     {
+      name:'news.details',
+      path:'/news/list/newsdetails',
+      component:newsDetail
+    },
+    {
       name:'photo.list',
       path:'/photo/list',
       component:photoList
@@ -86,14 +92,9 @@ export default new Router({
       component:shopCart
     },
     {
-      name:'my',
-      path:'/my',
-      component:My
-    },
-    // {
-    //   name:'banner.details',
-    //   path:'/bannerDetails',
-    //   component:bannerDetails
-    // }
+      name: 'my',
+      path: '/my',
+      component: My
+    }
   ]
 })

@@ -25,7 +25,14 @@
         },
         created(){
             // 点击对应的新闻 显示对应的详情
-
+            let id = this.$route.query.id
+            let title = this.$route.query.title
+            // console.log(this.dataURL('vue.php','newsList'))
+            this.$ajax.get(this.dataURL('vue.php',title,id))
+              .then(res => {
+                // console.log(res.data)
+                this.newsDetails = res.data
+              })
         }
     }
 </script>
