@@ -7,20 +7,20 @@
     <!--banner-->
     <!--footNav-->
     <footer class="ft">
-      <router-link class="link"  :to="{name:'index'}">
+      <router-link class="link" :to="{name:'index'}">
         <div class="svg iconfont icon-shouye"></div>
         <p>首页</p>
       </router-link>
-
-      <router-link class="link"  :to="{name:'map'}">
+      
+      <router-link class="link" :to="{name:'map'}">
         <div class="svg iconfont icon-ditu"></div>
         <p>潭州</p>
       </router-link>
-      <router-link class="link"  :to="{name:'weather'}">
+      <router-link class="link" :to="{name:'weather'}">
         <div class="svg iconfont icon-tianqichaxun"></div>
         <p>天气</p>
       </router-link>
-      <router-link class="link"  :to="{name:'shopcart'}">
+      <router-link class="link" :to="{name:'shopcart'}">
         <div class="svg iconfont icon-gouwuche count"><i class="showNum" v-if="this.pickNum">8</i></div>
         <p>购物</p>
       </router-link>
@@ -36,23 +36,25 @@
 <script>
   export default {
     name: 'App',
-    data(){
+    data() {
       return {
-        title:'',
-        pickNum:true
+        title: '',
+        pickNum: true
       }
     },
-    created(){
-      remChange();
-      window.addEventListener('resize',remChange);
-      function remChange(){
-        var html = document.getElementsByTagName('html')[0];
-        var witdh = html.getBoundingClientRect().width;
-        if( witdh >= 750 ){
-          witdh = 750;
+    created() {
+      remChange()
+      window.addEventListener('resize', remChange)
+      
+      function remChange() {
+        var html = document.getElementsByTagName('html')[0]
+        var witdh = html.getBoundingClientRect().width
+        if (witdh >= 750) {
+          witdh = 750
         }
-        html.style.fontSize = witdh / 10 +'px';
+        html.style.fontSize = witdh / 10 + 'px'
       }
+      
       //
       //
       // //console.log( this.dataURL('vue.php','vueTitle') )
@@ -61,8 +63,8 @@
       //     //console.log(res.data);
       //     this.title = res.data;
       //   })
-      console.log(this.dataURL('vue.php','vueTitle'))
-      this.$ajax.get(this.dataURL('vue.php','vueTitle'))
+      // console.log(this.dataURL('vue.php','vueTitle'))
+      this.$ajax.get(this.dataURL('vue.php', 'vueTitle'))
         .then((res) => {
           // console.log(res.data.data)
           this.title = res.data
@@ -72,8 +74,8 @@
 </script>
 s
 <style scoped lang="less">
-  @rem:750/10rem;
-
+  @rem: 750/10rem;
+  
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -84,14 +86,16 @@ s
     height: 100%;
     margin: auto;
     position: relative;
-    header{
+    
+    header {
       height: 80/@rem;
       line-height: 80/@rem;
       font-size: 30/@rem;
       color: white;
       background: #26a2ff;
     }
-    header.fixed{
+    
+    header.fixed {
       position: fixed;
       top: 0;
       left: 0;
@@ -101,9 +105,9 @@ s
       z-index: 999;
     }
   }
-
-
-  .ft{
+  
+  
+  .ft {
     position: fixed;
     right: 0;
     bottom: 0;
@@ -115,33 +119,36 @@ s
     background-size: 100% 1px;
     background-repeat: no-repeat;
     background-position: top left;
-
+    
     background-color: #fafafa;
     display: flex;
     text-align: center;
-
-    a{
+    
+    a {
       color: #18b4ed;
       text-decoration: none;
-      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
-    .link{
+    
+    .link {
       display: block;
       /*padding: 7px 0;*/
       flex: 1;
       text-decoration: none;
-
+      
     }
-    .link .svg{
+    
+    .link .svg {
       margin: 15/@rem auto 5px;
       font-size: 44/@rem;
     }
-
-    .link p{
+    
+    .link p {
       color: inherit;
       font-size: 24/@rem;
       line-height: 1;
     }
+    
     .icon {
       width: 1em;
       height: 1em;
@@ -149,10 +156,12 @@ s
       fill: currentColor;
       overflow: hidden;
     }
-    .count{
+    
+    .count {
       position: relative;
     }
-    .count .showNum{
+    
+    .count .showNum {
       position: absolute;
       margin: auto;
       width: 40/@rem;
@@ -164,13 +173,14 @@ s
       border-radius: 50%;
       font-style: normal;
     }
-
+    
     .fade-enter-active, .fade-leave-active {
       transition: opacity 0.2s;
     }
-    .fade-enter, .fade-leave-to , .fade-leave-active below version  {
+    
+    .fade-enter, .fade-leave-to, .fade-leave-active below version {
       opacity: 0;
     }
-
+    
   }
 </style>
