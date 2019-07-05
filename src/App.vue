@@ -21,7 +21,7 @@
         <p>天气</p>
       </router-link>
       <router-link class="link" :to="{name:'shopcart'}">
-        <div class="svg iconfont icon-gouwuche count"><i class="showNum" v-if="this.pickNum">8</i></div>
+        <div class="svg iconfont icon-gouwuche count"><i class="showNum" v-if="pickNum">{{pickNum}}</i></div>
         <p>购物</p>
       </router-link>
       <router-link class="link" :to="{name:'my'}">
@@ -39,7 +39,12 @@
     data() {
       return {
         title: '',
-        pickNum: true
+        pickNum: 0
+      }
+    },
+    computed:{
+      num(){
+        return this.$store.state.num
       }
     },
     created() {
@@ -47,23 +52,14 @@
       window.addEventListener('resize', remChange)
       
       function remChange() {
-        var html = document.getElementsByTagName('html')[0]
-        var witdh = html.getBoundingClientRect().width
+        let html = document.getElementsByTagName('html')[0]
+        let witdh = html.getBoundingClientRect().width
         if (witdh >= 750) {
           witdh = 750
         }
         html.style.fontSize = witdh / 10 + 'px'
       }
       
-      //
-      //
-      // //console.log( this.dataURL('vue.php','vueTitle') )
-      // this.$ajax.get(this.dataURL('vue.php','vueTitle'))
-      //   .then((res)=>{
-      //     //console.log(res.data);
-      //     this.title = res.data;
-      //   })
-      // console.log(this.dataURL('vue.php','vueTitle'))
       this.$ajax.get(this.dataURL('vue.php', 'vueTitle'))
         .then((res) => {
           // console.log(res.data.data)

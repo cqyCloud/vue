@@ -22,9 +22,6 @@
 </template>
 
 <script>
-  import '../../../static/aui/css/aui.2.0.css'
-  import '../../../static/aui/css/aui-pull-refresh.css'
-  import '../../../static/aui/script/aui-pull-refresh'
   
   export default {
     data() {
@@ -51,23 +48,10 @@
       
     },
     created() {
-      // this.shopList = 1;
-      // //  商品列表
-      // {
-      //     let file = 'vue.php';
-      //     let title = 'likeYou';
-      //     let url = file + '?title=' + title;
-      //     this.$ajax.get(url)
-      //         .then(res=>{
-      //             //console.log(res);
-      //             this.shopList = res.data;
-      //         })
-      //         .catch(err=>{
-      //             console.log(err);
-      //         });
-      // }
-      
-      
+      this.$ajax.get(this.dataURL('vue.php','likeYou'))
+        .then(res => {
+          this.shopList = res.data
+        })
     }
   }
 </script>

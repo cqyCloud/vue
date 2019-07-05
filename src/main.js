@@ -7,12 +7,29 @@ import router from './router'
 import '../static/css/global.css'
 import '../static/fonts/iconfont.css'
 
+import Vuex from 'vuex'
+Vue.use(Vuex)
+let store = new Vuex.Store({
+  state:{
+    num:0,
+    shopList:{}
+  },
+  mutations:{
+    addCartCount(state){
+      state.num++
+    },
+    reduceCartCount(state){
+      state.num--
+    }
+  }
+})
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'

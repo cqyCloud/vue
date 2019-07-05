@@ -13,6 +13,7 @@ import My from '../components/my/my'
 import bannerDetails from '../components/banner/bannardetails'
 import newsDetail from '../components/news/newsdetails'
 import photoDetails from '../components/photoshare/photo'
+import shopDetails from '../components/shop/shopdetails'
 
 //安装全局组件
 Vue.component('headNav',headNav)
@@ -81,6 +82,11 @@ export default new Router({
       name:'shop.list',
       path:'/shop/list',
       component:shopList
+    },
+    {
+      name:'shop.shopdetails',
+      path:'/shop/list/shopdetails',
+      component:shopDetails
     },
     {
       name:'map',

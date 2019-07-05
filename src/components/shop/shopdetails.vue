@@ -27,6 +27,8 @@
 </template>
 
 <script>
+  import connect from '../common/connect'
+  import shopTools from '../common/shopTools'
   
   export default {
     data() {
@@ -36,60 +38,45 @@
         index: 0
       }
     },
+    computed:{
+      cartCount(){
+        // return this.$store.state.num
+      }
+    },
     created() {
       // 点击对应的轮播图 显示对应的详情
-      //this.index = this.$route.params.id;
-      
       let index = this.$route.query.id
-      if (index) {
-        let file = 'vue.php'
-        let title = this.$route.query.title
-        let url = file + '?title=' + title + index
-        this.$ajax.get(url)
-          .then(res => {
-            //console.log(res.data[index]);
-            res.data['id'] = index
+      if(index){
+        let title = this.$route.query.titleindex
+        this.$ajax.get(this.dataURL('vue.php',title,index))
+          .then((res)=>{
+            res.data['id'] = index  // 根据id 把商品加入 到购物车，
             this.newsDetails = res.data
-            //console.log(this.newsDetails);
-          })
-          .catch(err => {
-            console.log(err)
           })
       }
-      shopTools.cartCount = this.$store.state.cartCount
     },
     methods: {
-      addCart() {  // 加入购物车
-        //console.log('开始添加购物车')
-        if (this.num != 0) {
-          //console.log( this.num )
-          connect.$emit('addCart', this.num)
-          shopTools.addUpdate({
-            id: this.newsDetails.id,
-            num: this.num
-          })
-          //console.log( shopTools.getShop() )
-        }
-        
-        
-        /*//console.log(this.num,this.newsDetails)
-        var options = {};
-        options[this.newsDetails.id] = this.num;
-        this.$store.commit('updateCartCount',options)*/
+      addCart(){  // 加入购物车
+        connect.$emit('addCart',this.num)
+        shopTools.addUpdate({
+          id:this.newsDetails.id,
+          num:this.num
+        })
       },
-      nowBuy() {   //  立即购买
-        //console.log('立即购买')
+      nowBuy(){   //  立即购买
+    
       },
-      shopReduce() {   //  商品数量减少
-        //console.log('--')
-        if (this.num <= 1) return
+      shopReduce(){   //  商品数量减少
+        //this.$store.commit('reduceCartCount')
+    
+        if( this.num<=0 ) return
         this.num--
-        /*this.$store.commit('updateCartCount',-1)*/
       },
-      shopAdd() {     //   商品数量增加
-        //console.log('++')
+      shopAdd(){     //   商品数量增加
+        //this.$store.commit('addCartCount')
+        //this.$store.commit()
+        if( this.num >= 20 ) return
         this.num++
-        /*this.$store.commit('updateCartCount',1)*/
       }
     }
   }
