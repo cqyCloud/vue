@@ -20,7 +20,7 @@
       </div>
       <div class="buy">
         <a href="javascript:;" class="addCart" @click="addCart">加入购物车</a>
-        <router-link :to="{name:'shopcart'}" class="nowBuy" @click="nowBuy">立即购买</router-link>
+        <router-link :to="{name:'shopcart',query:{title:'likeYou'}}" class="nowBuy" @click="nowBuy">立即购买</router-link>
       </div>
     </div>
   </div>
@@ -47,9 +47,10 @@
       // 点击对应的轮播图 显示对应的详情
       let index = this.$route.query.id
       if(index){
-        let title = this.$route.query.titleindex
+        let title = this.$route.query.title
         this.$ajax.get(this.dataURL('vue.php',title,index))
           .then((res)=>{
+            // console.log(res)
             res.data['id'] = index  // 根据id 把商品加入 到购物车，
             this.newsDetails = res.data
           })

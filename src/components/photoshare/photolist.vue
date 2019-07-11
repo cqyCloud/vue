@@ -39,7 +39,7 @@
           <li v-for="(item) in fullView" :key="item.id">
             <router-link :to="{name:'photo.details',query:{id:item.id,title:item.tip}}">
               <div class="pic ">
-                <img :src="item.picUrl" v-lazy="item.picUrl" alt="" width="100%" height="100%">
+                <img :src="item.picUrl"  v-lazy="item.picUrl" alt="" width="100%" height="100%">
               </div>
               <div class="con ">
                 <h2 v-text="item.title"></h2>
@@ -67,6 +67,7 @@
       // 图文导航请求
       this.$ajax.get(this.dataURL('vue.php', 'shareNav'))
         .then(res => {
+          // console.log(res.data)
           this.photoNav = res.data
         })
       this.getImgs('womanStar')
@@ -75,6 +76,7 @@
       getImgs(title) {
         this.$ajax.get(this.dataURL('vue.php', title))
           .then(res => {
+            // console.log(res.data)
             this[title] = res.data
             this.tabActive()
           })

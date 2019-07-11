@@ -27,7 +27,7 @@ shopTools.getShop = function () {
 shopTools.getShopCount = function () {
     let sum = 0;
     for( let id in shop ){
-        // sum += shop[id]
+        sum += shop[id]
     }
     return sum
 }

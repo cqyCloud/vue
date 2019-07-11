@@ -9,7 +9,6 @@
 </template>
 
 <script>
-  // import 'photoswipe/dist/photoswipe.css'
   
   export default {
     data() {
@@ -18,10 +17,14 @@
       }
     },
     created() {
+      
       let title = this.$route.query.title
       let id = this.$route.query.id
+      // console.log(title)
+      // console.log(this.dataURL('vue.php',title,id))
       this.$ajax.get(this.dataURL('vue.php',title,id))
         .then(res => {
+          // console.log(res)
           this.picList = res.data
         })
     },

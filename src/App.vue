@@ -34,12 +34,15 @@
 </template>
 
 <script>
+  import connect from './components/common/connect'
+  import shopTools from './components/common/shopTools'
+  
   export default {
     name: 'App',
     data() {
       return {
         title: '',
-        pickNum: 0
+        pickNum: shopTools.getShopCount()
       }
     },
     computed:{
@@ -62,13 +65,16 @@
       
       this.$ajax.get(this.dataURL('vue.php', 'vueTitle'))
         .then((res) => {
-          // console.log(res.data.data)
           this.title = res.data
         })
+      connect.$on('addCart',(num) => {
+        this.pickNum += num
+      })
+      
     }
   }
 </script>
-s
+
 <style scoped lang="less">
   @rem: 750/10rem;
   

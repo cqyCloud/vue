@@ -30,19 +30,6 @@
       }
     },
     mounted() {
-      // //aui-pull-refresh.js 下拉刷新组件
-      // {
-      //     var pullRefresh = new auiPullToRefresh({
-      //         container: document.querySelector('.aui-refresh-content'), //下拉容器
-      //         triggerDistance: 250 //下拉高度
-      //     },function(ret){
-      //         if(ret.status=="success"){
-      //             setTimeout(function () {
-      //                 pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
-      //             },3500);
-      //
-      //         }
-      //     });
       // }
       
       
