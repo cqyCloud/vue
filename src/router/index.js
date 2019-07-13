@@ -34,6 +34,9 @@ Vue.prototype.dataURL = function (file,title,id) {
 import $ from 'jquery'
 Vue.prototype.$jq = $;
 
+import Vue2Preview from 'vue2-preview'
+Vue.use(Vue2Preview)
+
 // mint-ui 组件库
 import  Mint from 'mint-ui'
 import  'mint-ui/lib/style.css'

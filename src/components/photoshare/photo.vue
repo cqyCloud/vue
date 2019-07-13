@@ -2,8 +2,10 @@
   <div class="mb">
     <head-nav title="图片详情"></head-nav>
     <div class="photoImgs">
-      <img class="preview-img" height="300" :key="index" v-for="(item,index) in picList" :src="item.picUrl"
-           @click="$preview.open(index,picList)" v-lazy="item.picUrl"/>
+      <!--<img class="preview-img" height="300" :key="index" v-for="(item,index) in picList" :src="item.picUrl" />-->
+      <!--@click="$preview.open(index,picList)" v-lazy="item.picUrl"-->
+      <vue-preview :list="picList" :thumbImageStyle="{height: '300px'}"/>
+      <!--@close="closeHandler" @destroy="destroyHandler"-->
     </div>
   </div>
 </template>
@@ -24,7 +26,11 @@
       // console.log(this.dataURL('vue.php',title,id))
       this.$ajax.get(this.dataURL('vue.php',title,id))
         .then(res => {
-          // console.log(res)
+          res.data.forEach((item,index) => {
+            item.src = item.picUrl
+            item.w = 300
+            item.h = 200
+          })
           this.picList = res.data
         })
     },
@@ -37,6 +43,15 @@
       //   })
       //   this.picList = data
       //
+      // }
+      
+      // // 即将关闭的时候，调用这个处理函数
+      // closeHandler() {
+      //   console.log('closeHandler')
+      // },
+      // // 完全关闭之后，调用这个函数清理资源
+      // destroyHandler() {
+      //   console.log('destroyHandler')
       // }
     }
   }
